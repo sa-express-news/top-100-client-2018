@@ -1,11 +1,11 @@
 @import 'node_modules/express-news-styleguide/init-base';
 
-.ENLogo{
+.en-logo{
 	cursor: pointer;
     float: left;
 }
 
-.ENLogo img {
+.en-logo img {
     background: transparent;
     padding: 4px;
     margin: 6px 5px 3px;
@@ -18,10 +18,10 @@
     }
 }
 
-.ENLogo img {
+.en-logo img {
     transition: color 1s linear;
 }
 
-.ENLogo:hover img{
+.en-logo:hover img{
 	color: #FCB001;
 }

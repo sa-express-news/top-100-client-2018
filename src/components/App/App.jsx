@@ -6,7 +6,6 @@ import models from '../../models';
 
 // components
 import NavBar from '../NavBar/NavBar';
-import ENLogo from '../ENLogo/ENLogo';
 
 // styles
 import './App.scss';
@@ -20,16 +19,10 @@ class App extends Component{
     }
 
     render() {
+        const { meta } = this.state;
         return(
             <div className="App">
-                <NavBar>
-                    <div className="left">
-						<ENLogo />
-					</div>
-					<div className="right">
-						{/* <SocialBlock url={meta.url} /> */}
-					</div>
-                </NavBar>
+                <NavBar checkout={meta.checkout} url={meta.url}></NavBar>
             </div>
         );
     }

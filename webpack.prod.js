@@ -1,6 +1,4 @@
-const fs = require('fs-extra');
 const path = require("path");
-const webpack = require("webpack");
 const npmConfig = require("./package.json");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
