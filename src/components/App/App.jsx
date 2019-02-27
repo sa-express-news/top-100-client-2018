@@ -6,6 +6,7 @@ import models from '../../models';
 
 // components
 import NavBar from '../NavBar/NavBar';
+import Intro from '../Intro/Intro';
 
 // styles
 import './App.scss';
@@ -23,6 +24,9 @@ class App extends Component{
         return(
             <div className="App">
                 <NavBar checkout={meta.checkout} url={meta.url}></NavBar>
+                <div className="container">
+                    <Intro meta={meta} />
+                </div>
             </div>
         );
     }

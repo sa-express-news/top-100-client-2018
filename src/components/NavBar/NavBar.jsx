@@ -15,6 +15,7 @@ const NavBar = ({ checkout, url }) => (
             <div className="links">
                 <ul>
                     <li><a href={checkout} target="_blank">Subscribe</a></li>
+                    <li><a href={checkout} target="_blank">Premium Eats</a></li>
                 </ul>
             </div>
         </div>

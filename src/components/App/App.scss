@@ -1,11 +1,59 @@
+@import 'node_modules/express-news-styleguide/init-base';
+
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .App {
-  margin: 0;
-  padding: 0;
-  font-family: Georgia, serif;
-  font-size: 14px;
+    margin: 50px 0 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.42857143;
+
+    p {
+        margin: 0 0 10px;
+        font-size: 18px;
+        line-height: inherit;
+        margin-bottom: 24px;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    a {
+        color: #999;
+        text-decoration: none;
+        border-bottom: none;
+
+        &:visited { color: #999 }
+        &:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+    }
+
+    div.container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+
+        @include mediaquery($default-tablet) {
+            width: 750px;
+        }
+
+        @include mediaquery(992px) {
+            width: 970px;
+        }
+
+        @include mediaquery(1200px) {
+            width: 1170px;
+        }
+    }
 }
