@@ -1,10 +1,7 @@
 const fs = require('fs-extra');
 const path = require("path");
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = env => {
     const isProd        = env === 'prod';
@@ -33,6 +30,10 @@ module.exports = env => {
                 {
                     test: /\.css$/,
                     use: [styleLoader, "css-loader"]
+                },
+                {
+                    test: /\.(png|jpg|gif|svg)$/,
+                    use: "file-loader"
                 }
             ]
         },

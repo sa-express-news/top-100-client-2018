@@ -1,0 +1,27 @@
+@import 'node_modules/express-news-styleguide/init-base';
+
+.ENLogo{
+	cursor: pointer;
+    float: left;
+}
+
+.ENLogo img {
+    background: transparent;
+    padding: 4px;
+    margin: 6px 5px 3px;
+    width: 1.8em;
+
+    @include mediaquery($default-tablet) {
+        width: 2em;
+        padding: 4px;
+        margin: 6px 10px 3px;
+    }
+}
+
+.ENLogo img {
+    transition: color 1s linear;
+}
+
+.ENLogo:hover img{
+	color: #FCB001;
+}

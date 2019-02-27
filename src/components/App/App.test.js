@@ -3,14 +3,10 @@ import { shallow } from 'enzyme';
 
 import App from './App';
 
-describe('App functionality', () => {
+describe('App state structure', () => {
     const app = shallow(<App />);
-
-    test('getSocialLinks should return a socialLinks obj', () => {    
-        expect(app.instance().getSocialLinks()).toHaveProperty('twitter');
-    });
     
-    test('App should include a "meta" prop with a "facebook" string prop', () => {
-        expect(typeof app.state().meta.facebook).toBe('string');
+    test('App should include a "meta" prop with a "url" string prop', () => {
+        expect(typeof app.state().meta.url).toBe('string');
     });
 });

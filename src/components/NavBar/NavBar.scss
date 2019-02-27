@@ -1,0 +1,18 @@
+div.nav-bar {
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 60px;
+    background: #000;
+    z-index: 1000;
+
+    .left {
+    	float: left;
+    }
+
+    .right {
+    	float: right;
+    }
+}

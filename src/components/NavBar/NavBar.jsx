@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const NavBar = props => <div>Hello World!</div>;
+// styles
+import './NavBar.scss';
+
+const NavBar = ({ children }) => (
+    <div className="nav-bar">
+        {children}
+    </div>
+);
 
 NavBar.propTypes = {
     socialLinks: PropTypes.shape({

@@ -6,6 +6,7 @@ import models from '../../models';
 
 // components
 import NavBar from '../NavBar/NavBar';
+import ENLogo from '../ENLogo/ENLogo';
 
 // styles
 import './App.scss';
@@ -18,19 +19,17 @@ class App extends Component{
         }
     }
 
-    getSocialLinks() {
-        const { meta } = this.state;
-        return {
-            facebook: meta.facebook,
-            twitter: meta.twitter,
-            reddit: meta.reddit,
-        }
-    }
-
-    render(){
+    render() {
         return(
             <div className="App">
-                <NavBar socialLinks={this.getSocialLinks()} />
+                <NavBar>
+                    <div className="left">
+						<ENLogo />
+					</div>
+					<div className="right">
+						{/* <SocialBlock url={meta.url} /> */}
+					</div>
+                </NavBar>
             </div>
         );
     }
