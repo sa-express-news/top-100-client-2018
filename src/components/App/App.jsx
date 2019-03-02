@@ -20,6 +20,7 @@ class App extends Component{
             meta: models.getMeta(),
             list: this.top100.getList(),
             tags: this.top100.getTags(),
+            listIsFiltered: this.top100.getList().length < 100,
         };
     }
 
@@ -27,6 +28,7 @@ class App extends Component{
         this.setState({ 
             list: this.top100.getList(),
             tags: this.top100.getTags(),
+            listIsFiltered: this.top100.getList().length < 100,
         });
     }
 
@@ -51,13 +53,21 @@ class App extends Component{
     }
 
     render() {
-        const { meta, list } = this.state;
+        const { meta, list, listIsFiltered } = this.state;
+        let venues;
+
+        if (listIsFiltered) {
+            venues = <List list={list} isFiltered={listIsFiltered} />
+        } else {
+            venues = <List list={list} isFiltered={listIsFiltered} />
+        }
+
         return(
             <div className="App">
                 <NavBar checkout={meta.checkout} url={meta.url}></NavBar>
                 <div className="container">
                     <Intro meta={meta} />
-                    <List list={list} />
+                    {venues}
                 </div>
             </div>
         );

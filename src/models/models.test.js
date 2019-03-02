@@ -10,7 +10,7 @@ describe('Top 100 list tests', () => {
     test('Filter by price $$$ should return list filtered by price', () => {
         top100.addExactFilter('Price', '$$$');
         expect(top100.getList().length).toBe(17);
-        let idx = Math.floor(Math.random() * (top100.getList().length) - 1);
+        let idx = Math.floor(Math.random() * top100.getList().length);
         expect(top100.getList()[idx].Price).toBe('$$$');
     });
 
