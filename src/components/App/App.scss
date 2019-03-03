@@ -3,6 +3,8 @@
 body {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
     box-sizing: border-box;
 }
 
@@ -55,5 +57,25 @@ body {
         @include mediaquery(1200px) {
             width: 1170px;
         }
+    }
+
+    img.img-responsive {
+        display: block;
+        height: auto;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    hr {
+        height: 0;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eee;
     }
 }

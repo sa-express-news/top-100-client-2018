@@ -17,6 +17,7 @@ class App extends Component{
         super(props);
         this.top100 = models.getTop100();
         this.state = {
+            idInFocus: null,
             meta: models.getMeta(),
             list: this.top100.getList(),
             tags: this.top100.getTags(),

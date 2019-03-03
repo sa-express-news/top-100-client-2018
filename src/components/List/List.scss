@@ -1,7 +1,17 @@
+@import 'node_modules/express-news-styleguide/init-base';
+
 div.list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
     align-content: flex-start;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    @include mediaquery(992px) {
+        margin: 0 8.33333333%;
+    }
 }
