@@ -1,6 +1,6 @@
 @import 'node_modules/express-news-styleguide/init-base';
 
-div.ordered-list {
+div.unordered-list {
     width: 100%;
     margin-top: 20px;
 
@@ -20,6 +20,16 @@ div.ordered-list {
             margin-top: 10px;
             margin-bottom: 0;
         }
+
+        @include mediaquery(992px) {
+            margin: 0 8.33333333%;
+        }
+    }
+
+    div.empty {
+        min-height: 100px;
+        padding: 20px 15px 0;
+        position: relative;
 
         @include mediaquery(992px) {
             margin: 0 8.33333333%;

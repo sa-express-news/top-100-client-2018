@@ -66,9 +66,16 @@ class Top100 {
     }
 
     _lazyFilter(key, filters, list) {
-        const isDuplicate = this._findDuplicates();
-        const prunedFilters = filters.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""); // removes all punctionation
-        return list.slice().filter(row => !isDuplicate(row.Name) && this._allLazyFiltersAreInVal(row[key], prunedFilters)); // if all words in filter exists in string, it's a match
+        if (filters.length) {
+            const isDuplicate = this._findDuplicates();
+            const prunedFilters = filters.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""); // removes all punctionation
+            return list.slice().filter(row => {
+                return !isDuplicate(row.Name) && this._allLazyFiltersAreInVal(row[key], prunedFilters); // if all words in filter exists in string, it's a match
+    
+            });
+        } else {
+            return list;
+        }
     }
 
     getList() {

@@ -7,9 +7,10 @@ import models from '../../models';
 // components
 import NavBar from '../NavBar/NavBar';
 import Intro from '../Intro/Intro';
-import About from '../About/About';
 import Controls from '../Controls/Controls';
-import List from '../List/List';
+import About from '../About/About';
+import OrderedList from '../OrderedList/OrderedList';
+import UnorderedList from '../UnorderedList/UnorderedList';
 
 // styles
 import './App.scss';
@@ -90,7 +91,8 @@ class App extends Component{
     render() {
         const { 
             meta,
-            list, 
+            list,
+            tags,
             listIsFiltered,
             dropDownOptions,
             viewAboutPage,
@@ -101,9 +103,9 @@ class App extends Component{
         if (viewAboutPage) {
             main = <About toggleAboutPage={this.toggleAboutPage} />
         } else if (listIsFiltered) {
-            main = <List list={list} isFiltered={listIsFiltered} />
+            main = <UnorderedList list={list} isFiltered={listIsFiltered} tags={tags} />
         } else {
-            main = <List list={list} isFiltered={listIsFiltered} />
+            main = <OrderedList list={list} isFiltered={listIsFiltered} />
         }
 
         return(

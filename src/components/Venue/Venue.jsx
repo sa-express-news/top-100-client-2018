@@ -4,14 +4,20 @@ import PropType from 'prop-types';
 // styles
 import './Venue.scss';
 
-const Banner = ({ photo }) => (
-    <img className="img-responsive" src={photo} />
-);
+const Banner = ({ photo, isFiltered, ranking }) => {
+    const className = !isFiltered && ranking === 'Best' ? 'img-responsive best' : 'img-responsive';
+    return (
+        <img className={className} src={photo} />
+    );
+}
 
 const Name = ({ isFiltered, ranking, name }) => (
     <div className="name">
         {!isFiltered && typeof ranking === 'number' &&
             <span>{ranking}. </span>
+        }
+        {!isFiltered && ranking === 'Best' &&
+            <span className="best">{ranking}: </span>
         }
         {name}
     </div>
