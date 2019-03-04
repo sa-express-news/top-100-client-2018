@@ -87,14 +87,18 @@ class Controls extends Component {
     }
 
     render() {
-        const { toggleAboutPage } = this.props;
+        const { toggleAboutPage, viewAboutPage } = this.props;
         const { filters } = this.state;
 
         return (
             <div className="controls">
                 <ul>
                     <li>
-                        <button id="about" onClick={toggleAboutPage}>About</button>
+                        <button 
+                            id="about" 
+                            className={viewAboutPage ? 'about selected' : 'about'}
+                            onClick={toggleAboutPage}
+                        >About</button>
                     </li>
                 </ul>
                 <input
@@ -157,6 +161,7 @@ Controls.propTypes = {
         Neighborhood: PropType.instanceOf(Set).isRequired,
         Price: PropType.instanceOf(Set).isRequired,
     }).isRequired,
+    viewAboutPage: PropType.bool.isRequired,
 };
 
 export default Controls

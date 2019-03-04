@@ -32,6 +32,10 @@ div.controls {
                 width: 100%;
                 border-radius: 2px;
 
+                &.selected {
+                    background-color: #bab9b9;
+                }
+
                 @include mediaquery(500px) {
                     width: 49%;
                 }

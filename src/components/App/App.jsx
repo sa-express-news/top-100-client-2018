@@ -7,6 +7,7 @@ import models from '../../models';
 // components
 import NavBar from '../NavBar/NavBar';
 import Intro from '../Intro/Intro';
+import About from '../About/About';
 import Controls from '../Controls/Controls';
 import List from '../List/List';
 
@@ -87,13 +88,22 @@ class App extends Component{
     }
 
     render() {
-        const { meta, list, listIsFiltered, dropDownOptions } = this.state;
-        let venues;
+        const { 
+            meta,
+            list, 
+            listIsFiltered,
+            dropDownOptions,
+            viewAboutPage,
+            viewIdDetails
+        } = this.state;
+        let main;
 
-        if (listIsFiltered) {
-            venues = <List list={list} isFiltered={listIsFiltered} />
+        if (viewAboutPage) {
+            main = <About toggleAboutPage={this.toggleAboutPage} />
+        } else if (listIsFiltered) {
+            main = <List list={list} isFiltered={listIsFiltered} />
         } else {
-            venues = <List list={list} isFiltered={listIsFiltered} />
+            main = <List list={list} isFiltered={listIsFiltered} />
         }
 
         return(
@@ -103,13 +113,14 @@ class App extends Component{
                     <Intro meta={meta} />
                     <Controls
                         dropDownOptions={dropDownOptions}
+                        viewAboutPage={viewAboutPage}
                         addSearchFilter={this.addSearchFilter}
                         addDropDownFilter={this.addDropDownFilter}
                         removeDropDownFilter={this.removeDropDownFilter}
                         removeAllFilters={this.removeAllFilters}
                         toggleAboutPage={this.toggleAboutPage}
                     />
-                    {venues}
+                    {main}
                 </div>
             </div>
         );
