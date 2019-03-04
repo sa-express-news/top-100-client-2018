@@ -88,12 +88,11 @@ class Top100 {
     } 
 
     addExactFilter(type, filter) {
-        if (!this._tags.has(type)) {
-            this._tags.set(type, filter);
-            return this._list = this._exactFilter(type, filter, this._list);
-        } else {
-            return console.error('This filter type already exists!!!');
-        }        
+        if (this._tags.has(type)) {
+            this.removeExactFilter(type);
+        }
+        this._tags.set(type, filter);
+        return this._list = this._exactFilter(type, filter, this._list);       
     }
 
     removeExactFilter(removedType) {

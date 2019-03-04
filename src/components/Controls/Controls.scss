@@ -1,0 +1,97 @@
+@import 'node_modules/express-news-styleguide/init-base';
+
+div.controls {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        text-align: center;
+
+        li {
+            display: inline;
+            font-size: 16px;
+
+            button {
+                background-color: #000;
+                margin-bottom: 20px;
+                border: none;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 700;
+                height: 60px;
+                overflow: visible;
+                padding: 5px;
+                text-align: center;
+                text-align-last: center;
+                text-transform: uppercase;
+                width: 100%;
+                border-radius: 2px;
+
+                @include mediaquery(500px) {
+                    width: 49%;
+                }
+            }
+        }
+
+        &.filters li {
+            margin-right: 4px; 
+        }
+
+        &.filters button {
+            background-color: #E56262;
+        }
+    }
+
+    input#search {
+        font-size: 14px;
+        height: 7vh;
+        padding: 20px;
+        width: 100%;
+        font-family: 'Roboto Condensed',sans-serif;
+        line-height: inherit;
+        color: inherit;
+        margin: 0;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #d8d8d8;
+    }
+
+    select {
+        cursor: pointer;
+        background-color: #E56262;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        height: 60px;
+        overflow: visible;
+        padding: 5px;
+        text-align: center;
+        text-align-last: center;
+        text-transform: uppercase;
+        -webkit-appearance: none;
+        line-height: inherit;
+        border-radius: 2px;
+        margin-bottom: 20px;
+        width: 100%;
+
+        &.selected {
+            background-color: #bab9b9;
+        }
+
+        @include mediaquery(500px) {
+            width: 49%;
+            margin-bottom: 5px;
+        }
+    }
+
+    @include mediaquery(992px) {
+        width: 66.66666667%;
+        margin-left: 16.66666667%;
+    }
+}

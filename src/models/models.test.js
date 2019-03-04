@@ -14,10 +14,6 @@ describe('Top 100 list tests', () => {
         expect(top100.getList()[idx].Price).toBe('$$$');
     });
 
-    test('You can only add one filter per type at a time', () => {
-        expect(top100.addExactFilter('Price', '$')).toBe(undefined);
-    });
-
     test('Filtering further by Cuisine should return sub list', () => {
         top100.addExactFilter('Cuisine', 'Southern');
         expect(top100.getList().length).toBe(3);
