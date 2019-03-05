@@ -17,10 +17,10 @@ const printTags = tags => tags.reduce((res, tag, idx, src) => {
     }
 }, '');
 
-const UnorderedList = ({ list, isFiltered, tags }) => {
+const UnorderedList = ({ list, isFiltered, tags, setVenueInFocus }) => {
     let results;
     if (list.length) {
-        results = <List list={list} isFiltered={isFiltered} />
+        results = <List list={list} isFiltered={isFiltered} setVenueInFocus={setVenueInFocus} />
     } else {
         results = <div className="empty">Your search returned no results</div>
     }
@@ -28,7 +28,7 @@ const UnorderedList = ({ list, isFiltered, tags }) => {
     return (
         <div className="unordered-list">
             <div className="search-results">
-                <div class="header">
+                <div className="header">
                     <p className="title">{`Filtering by: ${printTags(tags)}`}</p>
                     <hr />
                 </div>
@@ -59,6 +59,7 @@ UnorderedList.propTypes = {
     }).isRequired).isRequired,
     tags: PropType.arrayOf(PropType.string).isRequired,
     isFiltered: PropType.bool.isRequired,
+    setVenueInFocus: PropType.func.isRequired,
 };
 
 export default UnorderedList

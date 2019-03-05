@@ -58,7 +58,12 @@ const Venue = props => (
             <hr />
             {props.review && <Review review={props.review} />}
             {!props.review && <Website website={props.website} />}
-            <p className="reveal">Address, hours and other details</p>
+            <p
+                className="reveal"
+                onClick={() => props.setVenueInFocus(props.id)}
+            >
+                Address, hours and other details
+            </p>
         </div>
     </div>
 );
@@ -75,6 +80,7 @@ Venue.propTypes = {
     neighborhood: PropType.string.isRequired,
     review: PropType.string,
     website: PropType.string.isRequired,
+    setVenueInFocus: PropType.func.isRequired,
 };
 
 export default Venue

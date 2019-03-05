@@ -7,19 +7,20 @@ import Venue from '../Venue/Venue';
 // styles
 import './List.scss';
 
-const List = ({ list, isFiltered }) => {
+const List = ({ list, isFiltered, setVenueInFocus }) => {
     const venues = list.map(row => (
         <Venue
             key={row.id}
             id={row.id}
             ranking={row.Ranking}
             name={row.Name}
-            photo="https://projects.houstonchronicle.com/top100/images/restaurants/xochi.jpg"
+            photo={row.Photo}
             cusine={row.Cuisine}
             neighborhood={row.Neighborhood}
             review={row.Review}
             website={row.Website}
             isFiltered={isFiltered}
+            setVenueInFocus={setVenueInFocus}
         />
     ))
     return (
@@ -47,6 +48,7 @@ List.propTypes = {
         Review: PropType.string,
     }).isRequired).isRequired,
     isFiltered: PropType.bool.isRequired,
+    setVenueInFocus: PropType.func.isRequired,
 };
 
 export default List;

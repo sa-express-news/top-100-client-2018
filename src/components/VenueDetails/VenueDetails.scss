@@ -1,0 +1,164 @@
+@import 'node_modules/express-news-styleguide/init-base';
+
+div.venue-details {
+    @include clearfix;
+
+    div.menu {
+        @include clearfix;
+        background-color: #DBDBDB38;
+        margin: 30px auto 24px;
+        padding: 15px 0;
+        box-sizing: border-box;
+
+        p {
+            color: #222;
+            font-size: 13px;
+            margin-bottom: 16px;
+            word-wrap: break-word;
+            font-family: 'Roboto Condensed',sans-serif;
+        }
+
+        div.wrapper {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            box-sizing: border-box;
+
+            div.inner {
+                position: relative;
+                min-height: 1px;
+                padding-right: 15px;
+                padding-left: 15px;
+                box-sizing: border-box;
+
+                div.left {
+                    position: relative;
+                    min-height: 1px;
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    box-sizing: border-box;
+
+                    @include mediaquery(992px) {
+                        float: left;
+                        width: 50%;
+                    }
+                }
+
+                div.right {
+                    border-left: 1px solid #fff;
+                    position: relative;
+                    min-height: 1px;
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    box-sizing: border-box;
+
+                    div.name {
+                        font-weight: 600;
+                        line-height: 1;
+                        padding-bottom: 5px;
+                        padding-top: 24px;
+                        text-align: left;
+                        color: #222;
+                        font-size: 19px;
+                        margin-bottom: 6px;
+                        box-sizing: border-box;
+
+                        div.review-wrap {
+                            display: inline;
+
+                            a, a:hover {
+                                background-color: #fff;
+                                font-size: 12px;
+                                margin-left: 2%;
+                                padding: 5px;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                word-wrap: break-word;
+                                border-bottom: none;
+                                box-sizing: border-box;
+                                display: none;
+
+                                @include mediaquery($default-tablet) {
+                                    display: inline;
+                                }
+                            }
+
+                            a:visited {
+                                color: #999;
+                            }
+                        }
+
+                        p.mobile-review {
+                            display: block;
+                            font-size: 24px;
+                            margin-left: 2%;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            word-wrap: break-word;
+
+                            a {
+                                background-color: #fff;
+                                padding: 5px;
+                                text-decoration: none;
+                                color: #7e7d7d;
+                            }
+
+                            @include mediaquery($default-tablet) {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    div.menu-details {
+                        font-size: 14px;
+                        margin-bottom: 12px;
+                        font-family: 'Roboto Condensed',sans-serif;
+
+                        span {
+                            color: #e56262;
+                            font-weight: 700;
+                        }
+                    }
+
+                    @include mediaquery(992px) {
+                        float: left;
+                        width: 41.66666667%;
+                        right: 8.33333333%;
+                        left: 8.33333333%;
+                    }
+                }
+
+                @include mediaquery($default-tablet) {
+                    padding-left: 48px;
+                }
+
+                @include mediaquery(992px) {
+                    float: left;
+                    width: 100%;
+                }
+            }
+
+            @include mediaquery($default-tablet) {
+                width: 750px;
+            }
+        
+            @include mediaquery(992px) {
+                width: 970px;
+            }
+        
+            @include mediaquery(1200px) {
+                width: 1170px;
+            }
+        }
+    }
+
+    p.return {
+        font-size: 15px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

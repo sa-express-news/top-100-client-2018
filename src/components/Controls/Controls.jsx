@@ -74,7 +74,7 @@ class Controls extends Component {
     }
 
     getDropDownOptions(type) {
-        return [...this.props.dropDownOptions[type]].map((option, key) => {
+        return this.props.dropDownOptions[type].map((option, key) => {
             const val = option === type ? '' : option;
             return <option key={key} value={val}>{option}</option>;
         });
@@ -157,9 +157,9 @@ Controls.propTypes = {
     removeAllFilters: PropType.func.isRequired,
     toggleAboutPage: PropType.func.isRequired,
     dropDownOptions: PropType.shape({
-        Cuisine: PropType.instanceOf(Set).isRequired,
-        Neighborhood: PropType.instanceOf(Set).isRequired,
-        Price: PropType.instanceOf(Set).isRequired,
+        Cuisine: PropType.arrayOf(PropType.string).isRequired,
+        Neighborhood: PropType.arrayOf(PropType.string).isRequired,
+        Price: PropType.arrayOf(PropType.string).isRequired,
     }).isRequired,
     viewAboutPage: PropType.bool.isRequired,
 };

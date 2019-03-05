@@ -59,69 +59,60 @@ const sortList = list => list.reduce((hash, row) => {
     winery: { rows: [], len: 10 },
 });
 
-const OrderedList = ({ list, isFiltered }) => {
+const buildOrderedList = ({ list, isFiltered, setVenueInFocus }) => {
     const sortedList = sortList(list);
-    return (
-        <div className="ordered-list">
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Top 10</p>
-                    <hr />
-                </div>
-                <List list={sortedList.top10.rows} isFiltered={isFiltered} />
+    return [{
+        className: 'top-10',
+        title: 'Top 10',
+        key: 'top10',
+    }, {
+        className: 'restaurants',
+        title: '50 Other Top Restaurants',
+        key: 'restaurant', 
+    }, {
+        className: 'bars',
+        title: 'Top 10 Bars',
+        key: 'bar', 
+    }, {
+        className: 'bakeries',
+        title: 'Top 5 Bakeries',
+        key: 'bakery', 
+    }, {
+        className: 'breweries',
+        title: 'Breweries',
+        key: 'brewery', 
+    }, {
+        className: 'coffee-shos',
+        title: 'Top 5 Coffee Shops',
+        key: 'coffeeShop', 
+    }, {
+        className: 'distilleries',
+        title: 'Top 5 Distilleries',
+        key: 'distillery', 
+    }, {
+        className: 'wineries',
+        title: 'Top 10 Wineries',
+        key: 'winery', 
+    }].map(({ className, title, key }) => (
+        <div key={key} className={className}>
+            <div className="header">
+                <p className="title">{title}</p>
+                <hr />
             </div>
-            <div className="restaurants">
-                <div class="header">
-                    <p className="title">50 Other Top Restaurants</p>
-                    <hr />
-                </div>
-                <List list={sortedList.restaurant.rows} isFiltered={isFiltered} />
-            </div>
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Top 10 Bars</p>
-                    <hr />
-                </div>
-                <List list={sortedList.bar.rows} isFiltered={isFiltered} />
-            </div>
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Top 5 Bakeries</p>
-                    <hr />
-                </div>
-                <List list={sortedList.bakery.rows} isFiltered={isFiltered} />
-            </div>
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Breweries</p>
-                    <hr />
-                </div>
-                <List list={sortedList.brewery.rows} isFiltered={isFiltered} />
-            </div>
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Top 5 Coffee Shops</p>
-                    <hr />
-                </div>
-                <List list={sortedList.coffeeShop.rows} isFiltered={isFiltered} />
-            </div>
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Top 5 Distilleries</p>
-                    <hr />
-                </div>
-                <List list={sortedList.distillery.rows} isFiltered={isFiltered} />
-            </div>
-            <div className="top-10">
-                <div class="header">
-                    <p className="title">Top 10 Wineries</p>
-                    <hr />
-                </div>
-                <List list={sortedList.winery.rows} isFiltered={isFiltered} />
-            </div>
+            <List
+                list={sortedList[key].rows}
+                isFiltered={isFiltered}
+                setVenueInFocus={setVenueInFocus}
+            />
         </div>
-    )
+    ));
 };
+
+const OrderedList = props => (
+    <div className="ordered-list">
+        {buildOrderedList(props)}
+    </div>
+)
 
 OrderedList.propTypes = {
     list: PropType.arrayOf(PropType.exact({
@@ -143,6 +134,7 @@ OrderedList.propTypes = {
         Review: PropType.string,
     }).isRequired).isRequired,
     isFiltered: PropType.bool.isRequired,
+    setVenueInFocus: PropType.func.isRequired,
 };
 
 export default OrderedList

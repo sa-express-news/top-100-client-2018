@@ -5,12 +5,13 @@ import { hot } from 'react-hot-loader';
 import models from '../../models';
 
 // components
-import NavBar from '../NavBar/NavBar';
-import Intro from '../Intro/Intro';
-import Controls from '../Controls/Controls';
-import About from '../About/About';
-import OrderedList from '../OrderedList/OrderedList';
-import UnorderedList from '../UnorderedList/UnorderedList';
+import NavBar           from '../NavBar/NavBar';
+import Intro            from '../Intro/Intro';
+import Controls         from '../Controls/Controls';
+import About            from '../About/About';
+import VenueDetails     from '../VenueDetails/VenueDetails'
+import OrderedList      from '../OrderedList/OrderedList';
+import UnorderedList    from '../UnorderedList/UnorderedList';
 
 // styles
 import './App.scss';
@@ -20,38 +21,21 @@ class App extends Component{
         super(props);
         this.top100 = models.getTop100();
         this.state = {
-            viewIdDetails: null,
+            venueInFocus: null,
             viewAboutPage: false,
             meta: models.getMeta(),
             list: this.top100.getList(),
-            tags: this.top100.getTags(), // not yet in use
+            tags: this.top100.getTags(),
+            dropDownOptions: this.top100.getFilterOptionsHash(),
             listIsFiltered: this.top100.getList().length < 100,
-            dropDownOptions: this.getDropDownOptions(),
         };
 
-        this.addSearchFilter = this.addSearchFilter.bind(this);
-        this.addDropDownFilter = this.addDropDownFilter.bind(this);
-        this.removeDropDownFilter = this.removeDropDownFilter.bind(this);
-        this.removeAllFilters = this.removeAllFilters.bind(this);
-        this.toggleAboutPage = this.toggleAboutPage.bind(this);
-    }
-
-    getDropDownOptions() {
-        return Object.assign({}, this.top100.getList().reduce((hash, row) => {
-            Object.keys(hash).forEach(key => {
-                row[key].split(',').forEach(val => {
-                    if (!hash[key].has(val.trim())) {
-                        hash[key].add(val.trim());
-                    }
-                });
-            });
-            return hash;
-        }, {
-            'Cuisine': new Set(['Cuisine']),
-            'Neighborhood': new Set(['Neighborhood']),
-        }), {
-            'Price': new Set(['Price', '$', '$$', '$$$', '$$$$']),
-        });
+        this.addSearchFilter        = this.addSearchFilter.bind(this);
+        this.addDropDownFilter      = this.addDropDownFilter.bind(this);
+        this.removeDropDownFilter   = this.removeDropDownFilter.bind(this);
+        this.removeAllFilters       = this.removeAllFilters.bind(this);
+        this.toggleAboutPage        = this.toggleAboutPage.bind(this);
+        this.setVenueInFocus        = this.setVenueInFocus.bind(this);
     }
 
     setTop100State() {
@@ -88,6 +72,15 @@ class App extends Component{
         }));
     }
 
+    getVenueById() {
+        const { list, venueInFocus } = this.state;
+        return list.find(row => row.id === venueInFocus)
+    }
+
+    setVenueInFocus(venueInFocus) {
+        this.setState({ venueInFocus });
+    }
+
     render() {
         const { 
             meta,
@@ -96,16 +89,27 @@ class App extends Component{
             listIsFiltered,
             dropDownOptions,
             viewAboutPage,
-            viewIdDetails
+            venueInFocus
         } = this.state;
         let main;
 
         if (viewAboutPage) {
             main = <About toggleAboutPage={this.toggleAboutPage} />
+        } else if (venueInFocus) {
+            main = <VenueDetails setVenueInFocus={this.setVenueInFocus} {...this.getVenueById()} />
         } else if (listIsFiltered) {
-            main = <UnorderedList list={list} isFiltered={listIsFiltered} tags={tags} />
+            main = <UnorderedList
+                list={list}
+                isFiltered={listIsFiltered}
+                tags={tags}
+                setVenueInFocus={this.setVenueInFocus}
+            />
         } else {
-            main = <OrderedList list={list} isFiltered={listIsFiltered} />
+            main = <OrderedList
+                list={list}
+                isFiltered={listIsFiltered}
+                setVenueInFocus={this.setVenueInFocus}
+            />
         }
 
         return(

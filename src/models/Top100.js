@@ -86,6 +86,25 @@ class Top100 {
         return Array.from(this._tags.values());
     }
 
+    getFilterOptionsHash() {
+        const list = this._refreshList().reduce((hash, row) => {
+            Object.keys(hash).forEach(key => {
+                row[key].split(',').forEach(val => {
+                    if (!hash[key].has(val.trim())) {
+                        hash[key].add(val.trim());
+                    }
+                });
+            });
+            return hash;
+        }, { Cuisine: new Set(), Neighborhood: new Set(), Price: new Set() });
+        
+        return {
+            Cuisine: ['Cuisine'].concat(Array.from(list.Cuisine).sort()),
+            Neighborhood: ['Neighborhood'].concat(Array.from(list.Neighborhood).sort()),
+            Price: ['Price'].concat(Array.from(list.Price).sort()),
+        };
+    }
+
     addLazyFilter(type, filters) {
         let list = this._refreshList();
         this._tags.forEach((filter, type) => {
