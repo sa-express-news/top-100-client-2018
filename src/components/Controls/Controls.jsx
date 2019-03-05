@@ -44,6 +44,7 @@ class Controls extends Component {
         this.searchTimeout = window.setTimeout(() => {
             this.searchTimeout = undefined;
             this.props.addSearchFilter('Name', val);
+            this.props.clearSpecialViews();
         }, 500);
     }
 
@@ -54,6 +55,7 @@ class Controls extends Component {
         } else {
             this.props.removeDropDownFilter(type);
         }
+        this.props.clearSpecialViews();
         this.setState({
             filters: Object.assign({}, filters, {
                 [type]: val,
@@ -63,6 +65,7 @@ class Controls extends Component {
 
     handleReset() {
         this.props.removeAllFilters();
+        this.props.clearSpecialViews();
         this.setState({
             filters: {
                 Cuisine: '',
@@ -162,6 +165,7 @@ Controls.propTypes = {
         Price: PropType.arrayOf(PropType.string).isRequired,
     }).isRequired,
     viewAboutPage: PropType.bool.isRequired,
+    clearSpecialViews: PropType.func.isRequired,
 };
 
 export default Controls

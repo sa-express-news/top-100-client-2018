@@ -36,6 +36,7 @@ class App extends Component{
         this.removeAllFilters       = this.removeAllFilters.bind(this);
         this.toggleAboutPage        = this.toggleAboutPage.bind(this);
         this.setVenueInFocus        = this.setVenueInFocus.bind(this);
+        this.clearSpecialViews      = this.clearSpecialViews.bind(this);
     }
 
     setTop100State() {
@@ -81,6 +82,13 @@ class App extends Component{
         this.setState({ venueInFocus });
     }
 
+    clearSpecialViews() {
+        this.setState({
+            venueInFocus: null,
+            viewAboutPage: false,
+        })
+    }
+
     render() {
         const { 
             meta,
@@ -94,9 +102,9 @@ class App extends Component{
         let main;
 
         if (viewAboutPage) {
-            main = <About toggleAboutPage={this.toggleAboutPage} />
+            main = <About clearSpecialViews={this.clearSpecialViews} />
         } else if (venueInFocus) {
-            main = <VenueDetails setVenueInFocus={this.setVenueInFocus} {...this.getVenueById()} />
+            main = <VenueDetails clearSpecialViews={this.clearSpecialViews} {...this.getVenueById()} />
         } else if (listIsFiltered) {
             main = <UnorderedList
                 list={list}
@@ -125,6 +133,7 @@ class App extends Component{
                         removeDropDownFilter={this.removeDropDownFilter}
                         removeAllFilters={this.removeAllFilters}
                         toggleAboutPage={this.toggleAboutPage}
+                        clearSpecialViews={this.clearSpecialViews}
                     />
                     {main}
                 </div>

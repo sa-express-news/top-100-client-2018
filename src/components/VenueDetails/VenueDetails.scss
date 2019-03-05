@@ -1,6 +1,7 @@
 @import 'node_modules/express-news-styleguide/init-base';
 
 div.venue-details {
+    // this is a nightmare that should be redone. sorry
     @include clearfix;
 
     div.menu {
