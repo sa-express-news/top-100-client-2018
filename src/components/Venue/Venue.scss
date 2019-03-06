@@ -15,7 +15,7 @@ div.venue {
         }
 
         img.best {
-            border: 1px solid #e56262;
+            border: 1px solid #C1081B;
         }
 
         div.name {
@@ -27,7 +27,7 @@ div.venue {
             padding-bottom: 5px;
             text-align: left;
 
-            span.best { color: #e56262; }
+            span.best { color: #C1081B; }
         }
 
         p {
@@ -41,7 +41,7 @@ div.venue {
                 text-transform: uppercase;
 
                 a {
-                    color: #e56262;
+                    color: #C1081B;
                     font-weight: 700;
                     &:hover { text-decoration: underline; }
                 }

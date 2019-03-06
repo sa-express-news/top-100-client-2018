@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './Intro.scss';
 
 const Intro = ({ meta }) => {
-    const { desc, subscribeText, signupText, listenText, checkout, newsletter, podcast, banner } = meta;
+    const { desc, subscribeText, signupText, listenText, checkout, premiumEats, podcast, banner } = meta;
     return (
         <div className="intro">
             <img src={banner} className="img-responsive" />
@@ -14,8 +14,8 @@ const Intro = ({ meta }) => {
             </div>
             <div className="call">
                 <p><a href={checkout} target="_blank"><strong>Subscribe</strong></a>: {subscribeText}</p>
-                <p><a href={newsletter} target="_blank"><strong>Sign up</strong></a>: {signupText}</p>
-                <p><a href={podcast} target="_blank"><strong>Subscribe</strong></a>: {listenText}</p>
+                <p><a href={premiumEats} target="_blank"><strong>Sign up</strong></a>: {signupText}</p>
+                <p><a href={podcast} target="_blank"><strong>Listen</strong></a>: {listenText}</p>
             </div>
         </div>
     );
@@ -28,7 +28,7 @@ Intro.propTypes = {
         signupText: PropTypes.string.isRequired,
         listenText: PropTypes.string.isRequired,
         checkout: PropTypes.string.isRequired,
-        newsletter: PropTypes.string.isRequired,
+        premiumEats: PropTypes.string.isRequired,
         podcast: PropTypes.string.isRequired,
         banner: PropTypes.string.isRequired,
     }).isRequired,

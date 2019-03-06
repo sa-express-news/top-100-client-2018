@@ -102,7 +102,7 @@ class App extends Component{
         let main;
 
         if (viewAboutPage) {
-            main = <About clearSpecialViews={this.clearSpecialViews} />
+            main = <About clearSpecialViews={this.clearSpecialViews} checkout={meta.checkout} />
         } else if (venueInFocus) {
             main = <VenueDetails clearSpecialViews={this.clearSpecialViews} {...this.getVenueById()} />
         } else if (listIsFiltered) {
@@ -122,8 +122,8 @@ class App extends Component{
 
         return(
             <div className="App">
-                <NavBar checkout={meta.checkout} url={meta.url}></NavBar>
-                <div className="container">
+                <NavBar checkout={meta.checkout} url={meta.url} premiumEats={meta.premiumEats}></NavBar>
+                <div className="top-100-container">
                     <Intro meta={meta} />
                     <Controls
                         dropDownOptions={dropDownOptions}

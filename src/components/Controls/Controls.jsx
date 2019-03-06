@@ -94,7 +94,7 @@ class Controls extends Component {
         const { filters } = this.state;
 
         return (
-            <div className="controls">
+            <div className="top-100-controls">
                 <ul>
                     <li>
                         <button 

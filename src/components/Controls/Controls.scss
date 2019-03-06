@@ -1,7 +1,6 @@
 @import 'node_modules/express-news-styleguide/init-base';
 
-div.controls {
-    position: relative;
+div.top-100-controls {
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
@@ -47,7 +46,7 @@ div.controls {
         }
 
         &.filters button {
-            background-color: #E56262;
+            background-color: #C1081B;
         }
     }
 
@@ -67,7 +66,7 @@ div.controls {
 
     select {
         cursor: pointer;
-        background-color: #E56262;
+        background-color: #C1081B;
         border: none;
         color: #fff;
         font-size: 18px;

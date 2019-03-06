@@ -8,14 +8,14 @@ import SocialBlock  from '../SocialBlock/SocialBlock';
 // styles
 import './NavBar.scss';
 
-const NavBar = ({ checkout, url }) => (
+const NavBar = ({ checkout, url, premiumEats }) => (
     <div className="nav-bar">
         <div className="left">
             <ENLogo />
             <div className="links">
                 <ul>
                     <li><a href={checkout} target="_blank">Subscribe</a></li>
-                    <li><a href={checkout} target="_blank">Premium Eats</a></li>
+                    <li><a href={premiumEats} target="_blank">Premium Eats</a></li>
                 </ul>
             </div>
         </div>

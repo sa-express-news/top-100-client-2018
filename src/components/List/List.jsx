@@ -19,6 +19,7 @@ const List = ({ list, isFiltered, setVenueInFocus }) => {
             neighborhood={row.Neighborhood}
             review={row.Review}
             website={row.Website}
+            link={row.Link}
             isFiltered={isFiltered}
             setVenueInFocus={setVenueInFocus}
         />
@@ -45,6 +46,7 @@ List.propTypes = {
         Neighborhood: PropType.string.isRequired,
         Price: PropType.string.isRequired,
         Website: PropType.string,
+        Link: PropType.string.isRequired,
         Review: PropType.string,
     }).isRequired).isRequired,
     isFiltered: PropType.bool.isRequired,

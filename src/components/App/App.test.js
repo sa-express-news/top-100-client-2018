@@ -31,7 +31,7 @@ describe('Methods that modify the Top 100 instance', () => {
     test('addSearchFilter should remove if blank and calling addDropDownFilter on a second type should further filter via exact string', () => {
         app.instance().addSearchFilter('Name', '');
         app.instance().addDropDownFilter('Cuisine', 'American (New)');
-        expect(app.state().list.length).toBe(3);
+        expect(app.state().list.length).toBe(2);
     });
 
     test('removeDropDownFilter should remove a single filter and return the remaining tags', () => {

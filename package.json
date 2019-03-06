@@ -1,6 +1,6 @@
 {
   "name": "top-100-client-2018",
-  "s3Bucket": "./",
+  "s3Bucket": "https://s3.amazonaws.com/projects.expressnews.com/top-100-client-2018/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

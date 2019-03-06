@@ -4,7 +4,7 @@ import PropType from 'prop-types';
 // styles
 import './VenueDetails.scss';
 
-const Name = ({ ranking, name, review }) => (
+const Name = ({ ranking, name, link }) => (
     <div className="name">
         {typeof ranking === 'number' &&
             <span>{ranking}. </span>
@@ -13,18 +13,16 @@ const Name = ({ ranking, name, review }) => (
             <span className="best">{ranking}: </span>
         }
         {name}
-        {review &&
-            <div className="review-wrap">
-                <a className="review" href={review} target="_blank">
-                    Read our review here
+        <div className="review-wrap">
+            <a className="review" href={link} target="_blank">
+                Read more here
+            </a>
+            <p className="mobile-review">
+                <a href={link} target="_blank">
+                    More here
                 </a>
-                <p className="mobile-review">
-                    <a href={review} target="_blank">
-                        Our review
-                    </a>
-                </p>
-            </div>
-        }
+            </p>
+        </div>
     </div>
 );
 
@@ -36,12 +34,12 @@ const VenueDetails = props => (
                 <div className="inner">
                     <div className="left">
                         <img className="img-responsive" src={props.Photo} />
-                        <p className="return" onClick={() => props.setVenueInFocus(null)}>
+                        <p className="return" onClick={props.clearSpecialViews}>
                             <i className="fas fa-arrow-left"></i> Back to the main page
                         </p>
                     </div>
                     <div className="right">
-                        <Name ranking={props.Ranking} name={props.Name} review={props.Review} />
+                        <Name ranking={props.Ranking} link={props.Link} name={props.Name} />
                         <div className="menu-details">
                             {props.Cuisine} | {props.Neighborhood} | Price: <span>{props.Price}</span>
                         </div>
@@ -82,7 +80,8 @@ VenueDetails.propTypes = {
     Price: PropType.string.isRequired,
     Website: PropType.string.isRequired,
     Review: PropType.string,
-    setVenueInFocus: PropType.func.isRequired,
+    Link: PropType.string.isRequired,
+    clearSpecialViews: PropType.func.isRequired,
 };
 
 export default VenueDetails

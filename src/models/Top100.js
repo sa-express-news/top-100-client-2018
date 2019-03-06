@@ -90,7 +90,7 @@ class Top100 {
         const list = this._refreshList().reduce((hash, row) => {
             Object.keys(hash).forEach(key => {
                 row[key].split(',').forEach(val => {
-                    if (!hash[key].has(val.trim())) {
+                    if (val.trim() && !hash[key].has(val.trim())) {
                         hash[key].add(val.trim());
                     }
                 });

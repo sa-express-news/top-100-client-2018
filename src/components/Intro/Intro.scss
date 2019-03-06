@@ -8,7 +8,6 @@ div.intro {
     }
 
     div.text {
-        position: relative;
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
@@ -32,6 +31,8 @@ div.intro {
             font-size: 16px;
             margin-top: 24px;
             text-align: center;
+
+            a { color: #C1081B; }
         }
     }
 }

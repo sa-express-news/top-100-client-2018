@@ -79,7 +79,7 @@ const buildOrderedList = ({ list, isFiltered, setVenueInFocus }) => {
         key: 'bakery', 
     }, {
         className: 'breweries',
-        title: 'Breweries',
+        title: 'Top 5 Breweries',
         key: 'brewery', 
     }, {
         className: 'coffee-shos',
@@ -91,7 +91,7 @@ const buildOrderedList = ({ list, isFiltered, setVenueInFocus }) => {
         key: 'distillery', 
     }, {
         className: 'wineries',
-        title: 'Top 10 Wineries',
+        title: 'Top 10 Hill Country Wineries',
         key: 'winery', 
     }].map(({ className, title, key }) => (
         <div key={key} className={className}>
@@ -131,6 +131,7 @@ OrderedList.propTypes = {
         Neighborhood: PropType.string.isRequired,
         Price: PropType.string.isRequired,
         Website: PropType.string,
+        Link: PropType.string.isRequired,
         Review: PropType.string,
     }).isRequired).isRequired,
     isFiltered: PropType.bool.isRequired,

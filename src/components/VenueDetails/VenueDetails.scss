@@ -27,18 +27,26 @@ div.venue-details {
             box-sizing: border-box;
 
             div.inner {
-                position: relative;
                 min-height: 1px;
                 padding-right: 15px;
                 padding-left: 15px;
                 box-sizing: border-box;
 
                 div.left {
-                    position: relative;
                     min-height: 1px;
                     padding-right: 15px;
                     padding-left: 15px;
                     box-sizing: border-box;
+
+                    p.return {
+                        cursor: pointer;
+                        color: #C1081B;
+                        font-size: 15px;
+                
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
 
                     @include mediaquery(992px) {
                         float: left;
@@ -48,7 +56,6 @@ div.venue-details {
 
                 div.right {
                     border-left: 1px solid #fff;
-                    position: relative;
                     min-height: 1px;
                     padding-right: 15px;
                     padding-left: 15px;
@@ -117,7 +124,7 @@ div.venue-details {
                         font-family: 'Roboto Condensed',sans-serif;
 
                         span {
-                            color: #e56262;
+                            color: #C1081B;
                             font-weight: 700;
                         }
                     }

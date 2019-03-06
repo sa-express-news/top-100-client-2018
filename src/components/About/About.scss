@@ -1,10 +1,30 @@
-div.about {
-    p.return {
-        font-size: 15px;
-        cursor: pointer;
+@import 'node_modules/express-news-styleguide/init-base';
 
-        &:hover {
-            text-decoration: underline;
+div.about {
+    margin-top: 36px;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    a { color: #C1081B; }
+
+    p {
+        font-size: 15px;
+
+        &.return {
+            cursor: pointer;
+            color: #C1081B;
+    
+            &:hover {
+                text-decoration: underline;
+            }
         }
+    }
+
+    @include mediaquery(992px) {
+        float: left;
+        width: 50%;
+        margin-left: 25%;
+        padding-left: 0;
     }
 }

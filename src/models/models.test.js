@@ -9,7 +9,7 @@ describe('Top 100 list tests', () => {
 
     test('Filter by price $$$ should return list filtered by price', () => {
         top100.addExactFilter('Price', '$$$');
-        expect(top100.getList().length).toBe(17);
+        expect(top100.getList().length).toBe(15);
         let idx = Math.floor(Math.random() * top100.getList().length);
         expect(top100.getList()[idx].Price).toBe('$$$');
     });
@@ -60,14 +60,13 @@ describe('Top 100 list tests', () => {
         ];
         expect(top100.addLazyFilter('Name', 'Bar').map(row => row.Name)).toEqual(expected);
         top100.addExactFilter('Price', '$$')
-        expect(top100.getList().length).toBe(5);
+        expect(top100.getList().length).toBe(3);
         expected = [
-            "SoHo Wine & Martini Bar",
             "Meadow Neighborhood Eatery + Bar",
         ];
         top100.addLazyFilter('Name', 'Bar ho');
         expect(top100.getList().map(row => row.Name)).toEqual(expected);
         top100.addLazyFilter('Name', '   ');
-        expect(top100.getList().length).toBe(51);
+        expect(top100.getList().length).toBe(19);
     });
 });

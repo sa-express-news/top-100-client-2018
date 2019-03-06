@@ -55,6 +55,7 @@ UnorderedList.propTypes = {
         Neighborhood: PropType.string.isRequired,
         Price: PropType.string.isRequired,
         Website: PropType.string,
+        Link: PropType.string.isRequired,
         Review: PropType.string,
     }).isRequired).isRequired,
     tags: PropType.arrayOf(PropType.string).isRequired,

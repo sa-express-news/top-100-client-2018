@@ -35,25 +35,13 @@ const Website = ({ website }) => (
     </p>
 );
 
-const addReviewLink = (props, LinkedComponent) => (
-    <a href={props.review} target="_blank">
-        <LinkedComponent {...props} />
-    </a>
-);
-
-const reviewLinkExists = (props, LinkedComponent) => {
-    if (props.review.length) {
-        return addReviewLink(props, LinkedComponent);
-    } else {
-        return (<LinkedComponent {...props} />);
-    }
-};
-
 const Venue = props => (
     <div className="venue">
         <div className="inner">
-            {reviewLinkExists(props, Banner)}
-            {reviewLinkExists(props, Name)}
+            <a href={props.link} target="_blank">
+                <Banner {...props} />
+                <Name {...props} />
+            </a>
             <p><span className="cuisine">{props.cusine}</span> | {props.neighborhood}</p>
             <hr />
             {props.review && <Review review={props.review} />}
@@ -79,7 +67,9 @@ Venue.propTypes = {
     cusine: PropType.string.isRequired,
     neighborhood: PropType.string.isRequired,
     review: PropType.string,
+    link: PropType.string.isRequired,
     website: PropType.string.isRequired,
+    isFiltered: PropType.bool.isRequired,
     setVenueInFocus: PropType.func.isRequired,
 };
 

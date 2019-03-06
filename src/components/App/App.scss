@@ -39,12 +39,11 @@ body {
         }
     }
 
-    div.container {
+    div.top-100-container {
         padding-right: 15px;
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
-        position: relative;
 
         @include mediaquery($default-tablet) {
             width: 750px;

@@ -5,7 +5,6 @@ div.unordered-list {
     margin-top: 20px;
 
     div.header {
-        position: relative;
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
@@ -29,7 +28,6 @@ div.unordered-list {
     div.empty {
         min-height: 100px;
         padding: 20px 15px 0;
-        position: relative;
 
         @include mediaquery(992px) {
             margin: 0 8.33333333%;
